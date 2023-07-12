@@ -15,6 +15,13 @@ namespace Clave.ExtensionMethods
         /// <summary>
         /// Joins a list of strings, except null or empty values, with a single space
         /// </summary>
+        private static string JoinWithTwoSpaces<T>(this IEnumerable<T> values)
+            => values
+                .Select(v => v.ToString())
+                .WhereNot(string.IsNullOrWhiteSpace)
+                .Select(s => s.Trim())
+                .Join("  ");
+
         public static string JoinWithSpace<T>(this IEnumerable<T> values)
             => values
                 .Select(v => v.ToString())
@@ -38,7 +45,8 @@ namespace Clave.ExtensionMethods
         public static string ConcatWithSpace(this string initial, params string[] values)
             => initial
                 .And(values)
-                .JoinWithSpace();
+                .JoinWithSpace()
+                .JoinWithTwoSpaces();
 
         /// <summary>
         /// Joins a list of strings, except null or empty values, with ", "
