@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;netstandard2.0;net46</TargetFrameworks>
+    <Version>0.0.1</Version>
+    <DebugType>embedded</DebugType>
+    <LangVersion>latest</LangVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Title>Clave.ExtensionMethods</Title>
+    <PackageIconUrl>https://raw.githubusercontent.com/ClaveConsulting/logo/master/png/logo_noText.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/ClaveConsulting/ExtensionMethods</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/ClaveConsulting/ExtensionMethods</PackageProjectUrl>
+    <Authors>Clave Consulting</Authors>
+    <Description>A collection of useful extension methods</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
+    <PackageReference Include="System.ValueTuple" Version="4.4.0" />
+  </ItemGroup>
+
+</Project>
